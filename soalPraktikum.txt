@@ -1,0 +1,13 @@
+buatlah program untuk memasukan data ke dalam sebuah Array dengan metoda FIFO
+
+buatlah program tersebut sehingga memiliki kemampuan untuk melakukan pengecekan terhadap
+1. buffer underrun (membaca data yang belum ditulis)
+2. buffer overflow (menulis keluar batas Array)
+3. ring buffer overwrite (menulis ke area yang belum kosong)
+
+Buatlah program untuk memasukkan data ke dalam sebuah Array menjadi struktur data LIFO
+
+buatlah program tersebut sedemikian sehingga memiliki kemampuan untuk melakukan pengecekan terhadap
+1. stack overflow (menulis keluar batas Array)
+2. check stack empty
+

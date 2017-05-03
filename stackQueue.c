@@ -92,7 +92,7 @@ while(pilihan != QUIT)
 		break;
 	case PRINT_QUEUE :
 		printf("Data Antrian:\n");
-		printQueue(dataAntrian, penunjukTumpukan, bacaAntrian, tulisAntrian);
+		printQueue(dataAntrian, PANJANG_ANTRIAN, bacaAntrian, tulisAntrian);
 		printf("Data array Tumpukan:\n");
 		printArray(dataAntrian, PANJANG_ANTRIAN);
 		break;
@@ -114,27 +114,33 @@ void printArray(int* ArrayInt, int length)
 
 void printQueue(int* ArrayInt, int length, int start, int end)
 {
-	for (int i = start; i == end; i++) {
+	for (int i = start; i != end; i++) {
 		i = i % length;
-		printf("%d", ArrayInt[i]);
+		printf("%d ", ArrayInt[i]);
 	}
 	printf("\n");
 }
 
 void inputQueue(int* ArrayInt, int data, int length, int* readP, int* writeP)
 {
+	// check buffer overwrite
 	ArrayInt[*writeP] = data;
 	(*writeP)++;
+	*writeP = *writeP % length;
 }
 
 int outputQueue(int* ArrayInt, int length, int* readP, int* writeP)
 {
+	// check buffer underrun
+	int temp = ArrayInt[*readP];
 	(*readP)++;
-	return ArrayInt[*readP-1];
+	*readP = *readP % length;
+	return temp;
 }
 
 void inputStack(int* ArrayInt, int data, int length, int* writeP)
 {
+	// check stack overflow
 	ArrayInt[*writeP] = data;
 	(*writeP)++;
 }
@@ -142,5 +148,6 @@ void inputStack(int* ArrayInt, int data, int length, int* writeP)
 int outputStack(int*ArrayInt, int* writeP)
 {
 	(*writeP)--;
+	// check stack empty
 	return ArrayInt[*writeP];
 }
