@@ -1,5 +1,5 @@
 /*
- * stackQueue.c
+ * queue.c
  *
  *  Created on: May 3, 2017
  *      Author: otm

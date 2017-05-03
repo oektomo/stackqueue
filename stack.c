@@ -1,5 +1,5 @@
 /*
- * stackQueue.c
+ * stack.c
  *
  *  Created on: May 3, 2017
  *      Author: otm
@@ -9,19 +9,11 @@
 
 #define INPUT_STACK	1
 #define OUTPUT_STACK	2
-#define INPUT_QUEUE 3
-#define OUTPUT_QUEUE 4
 #define PRINT_STACK 5
-#define PRINT_QUEUE 6
 #define QUIT	7
-#define PANJANG_ANTRIAN 20
 #define PANJANG_TUMPUKAN 20
 
 void printArray(int* ArrayInt, int length);
-
-void printQueue(int* ArrayInt, int length, int start, int end);
-void inputQueue(int* ArrayInt, int data, int length, int* readP, int* writeP);
-int outputQueue(int* ArrayInt, int length, int* readP, int* writeP);
 
 void inputStack(int* ArrayInt, int data, int length, int* writeP);
 int outputStack(int*ArrayInt, int* writeP);
@@ -29,7 +21,7 @@ int outputStack(int*ArrayInt, int* writeP);
 int main()
 {
 int pilihan = 0;
-int dataTumpukan[PANJANG_TUMPUKAN], dataAntrian[PANJANG_ANTRIAN];
+int dataTumpukan[PANJANG_TUMPUKAN];
 int penunjukTumpukan = 0, bacaAntrian = 0, tulisAntrian = 0;
 
 while(pilihan != QUIT)
