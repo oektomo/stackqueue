@@ -50,28 +50,13 @@ while(pilihan != QUIT)
 		bilBulat = outputStack(dataTumpukan, &penunjukTumpukan);
 		printf("Data Tumpukan teratas: %d\n", bilBulat);
 		break;
-	case INPUT_QUEUE :
-		printf("Masukkan bilangan bulat ke Antrian: ");
-		scanf("%d",&bilBulat);
-		printf("memasukkan %d ke Antrian", bilBulat);
-		inputQueue(dataAntrian, bilBulat, PANJANG_ANTRIAN, &bacaAntrian, &tulisAntrian);
-		break;
-	case OUTPUT_QUEUE :
-		bilBulat = outputQueue(dataAntrian, PANJANG_TUMPUKAN, &bacaAntrian, &tulisAntrian);
-		printf("Data Antrian Terdepan: %d\n", bilBulat);
-		break;
 	case PRINT_STACK :
 		printf("Data Tumpukan:\n");
 		printArray(dataTumpukan, penunjukTumpukan);
 		printf("Data array Tumpukan:\n");
 		printArray(dataTumpukan, PANJANG_TUMPUKAN);
 		break;
-	case PRINT_QUEUE :
-		printf("Data Antrian:\n");
-		printQueue(dataAntrian, penunjukTumpukan, bacaAntrian, tulisAntrian);
-		printf("Data array Tumpukan:\n");
-		printArray(dataAntrian, PANJANG_ANTRIAN);
-		break;
+
 	}
 
 }
@@ -84,27 +69,6 @@ void printArray(int* ArrayInt, int length)
 		printf("%d ", ArrayInt[i]);
 	}
 	printf("\n");
-}
-
-void printQueue(int* ArrayInt, int length, int start, int end)
-{
-	for (int i = start; i == end; i++) {
-		i = i % length;
-		printf("%d", ArrayInt[i]);
-	}
-	printf("\n");
-}
-
-void inputQueue(int* ArrayInt, int data, int length, int* readP, int* writeP)
-{
-	ArrayInt[*writeP] = data;
-	(*writeP)++;
-}
-
-int outputQueue(int* ArrayInt, int length, int* readP, int* writeP)
-{
-	(*readP)++;
-	return ArrayInt[*readP-1];
 }
 
 void inputStack(int* ArrayInt, int data, int length, int* writeP)
